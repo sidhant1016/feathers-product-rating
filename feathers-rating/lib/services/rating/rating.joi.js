@@ -6,14 +6,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.joiReadOptions = exports.joiOptions = exports.ratingValidation = exports.getratingSchema = exports.ratingSchema = void 0;
 const joi_1 = __importDefault(require("joi"));
 const feathers_validate_joi_1 = __importDefault(require("feathers-validate-joi"));
-const userId = joi_1.default.number().integer().required();
 const productId = joi_1.default.number().integer().required();
 const rating = joi_1.default.number().min(0).max(5).required();
 const search = joi_1.default.string().trim().allow('').default('').label('Search text');
 const limit = joi_1.default.number().label('Limit');
 const skip = joi_1.default.number().label('Skip');
 exports.ratingSchema = joi_1.default.object().keys({
-    userId,
     productId,
     rating
 });

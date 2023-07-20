@@ -10,13 +10,12 @@ export const productSchema = {
   $id: 'Product',
   type: 'object',
   additionalProperties: false,
-  required: ['id', 'name', 'description', 'category'],
+  required: ['id', 'name', 'description'],
   properties: {
     id: { type: 'number' },
 
     name: { type: 'string' },
-    description: { type: 'string' },
-    category: { type: 'string' }
+    description: { type: 'string' }
   }
 } as const
 export type Product = FromSchema<typeof productSchema>

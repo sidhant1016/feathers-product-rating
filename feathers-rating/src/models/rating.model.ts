@@ -1,12 +1,11 @@
 import { Model, DataTypes } from 'sequelize'
 import sequelize from '../sequelize'
+import Product from './product.model'
 
 class Rating extends Model {
   public id!: number
-  public userId!: number
   public productId!: number
   public rating!: number
-
 }
 
 Rating.init(
@@ -16,13 +15,14 @@ Rating.init(
       autoIncrement: true,
       primaryKey: true
     },
-    userId: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
     productId: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
+      references: {
+        model: Product,
+        key: 'id'
+      },
+
     },
     rating: {
       type: DataTypes.FLOAT,
@@ -31,9 +31,9 @@ Rating.init(
   },
   {
     sequelize,
-    timestamps:false,
+    timestamps: false,
     modelName: 'rating',
-    tableName:'rating'
+    tableName: 'rating'
   }
 )
 

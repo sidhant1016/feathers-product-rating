@@ -4,7 +4,6 @@ import { HookContext } from '@feathersjs/feathers'
 
 const name = Joi.string().required()
 const description = Joi.string().required()
-const category = Joi.string().required()
 const  rating = Joi.number().required()
 const search = Joi.string().trim().allow('').default('').label('Search text')
 const limit = Joi.number().label('Limit')
@@ -13,7 +12,6 @@ const skip = Joi.number().label('Skip')
 export const createProductSchema = Joi.object().keys({
  name,
  description,
- category,
  rating
 })
 

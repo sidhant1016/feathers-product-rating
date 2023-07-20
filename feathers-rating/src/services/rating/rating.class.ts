@@ -19,17 +19,13 @@ export class RatingService<ServiceParams extends Params = RatingParams> extends 
 > {
   async create(data: RatingData, params: ServiceParams): Promise<Rating> {
     const { productId } = data
-    const userId = params?.user?.id
 
-    if (!userId) {
-      throw new Error('You must be logged in to submit a rating.')
-    }
 
     // Check if the user has already rated the product
     const existingRating = await this._find({
       query: {
         productId,
-        userId
+       
       }
     })
 
@@ -37,7 +33,7 @@ export class RatingService<ServiceParams extends Params = RatingParams> extends 
       throw new Error('You have already rated this product.')
     }
 
-    return super.create({ ...data, userId }, params)
+    return super.create({ ...data }, params)
   }
 }
 

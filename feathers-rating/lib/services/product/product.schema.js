@@ -9,12 +9,11 @@ exports.productSchema = {
     $id: 'Product',
     type: 'object',
     additionalProperties: false,
-    required: ['id', 'name', 'description', 'category'],
+    required: ['id', 'name', 'description'],
     properties: {
         id: { type: 'number' },
         name: { type: 'string' },
-        description: { type: 'string' },
-        category: { type: 'string' }
+        description: { type: 'string' }
     }
 };
 exports.productValidator = (0, schema_1.getValidator)(exports.productSchema, validators_1.dataValidator);

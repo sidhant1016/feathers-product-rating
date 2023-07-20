@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { authenticate } from '@feathersjs/authentication'
 import validate from 'feathers-validate-joi'
 import { hooks as schemaHooks } from '@feathersjs/schema'

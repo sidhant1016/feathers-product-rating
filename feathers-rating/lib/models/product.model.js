@@ -21,10 +21,6 @@ Product.init({
         type: sequelize_1.DataTypes.STRING,
         allowNull: false
     },
-    category: {
-        type: sequelize_1.DataTypes.STRING,
-        allowNull: false
-    },
     rating: {
         type: sequelize_1.DataTypes.FLOAT,
         allowNull: true

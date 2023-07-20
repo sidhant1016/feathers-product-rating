@@ -8,7 +8,6 @@ const joi_1 = __importDefault(require("joi"));
 const feathers_validate_joi_1 = __importDefault(require("feathers-validate-joi"));
 const name = joi_1.default.string().required();
 const description = joi_1.default.string().required();
-const category = joi_1.default.string().required();
 const rating = joi_1.default.number().required();
 const search = joi_1.default.string().trim().allow('').default('').label('Search text');
 const limit = joi_1.default.number().label('Limit');
@@ -16,7 +15,6 @@ const skip = joi_1.default.number().label('Skip');
 exports.createProductSchema = joi_1.default.object().keys({
     name,
     description,
-    category,
     rating
 });
 exports.getProductSchema = joi_1.default.object().keys({

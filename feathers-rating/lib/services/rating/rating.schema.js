@@ -10,10 +10,9 @@ exports.ratingSchema = {
     $id: 'Rating',
     type: 'object',
     additionalProperties: false,
-    required: ['id', 'userId', 'productId'],
+    required: ['id', 'productId'],
     properties: {
         id: { type: 'number' },
-        userId: { type: 'number' },
         productId: { type: 'number' }
     }
 };

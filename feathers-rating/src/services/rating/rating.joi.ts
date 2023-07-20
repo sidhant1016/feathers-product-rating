@@ -1,8 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import Joi from 'joi'
 import validate from 'feathers-validate-joi'
-import { HookContext } from '@feathersjs/feathers'
 
-const userId = Joi.number().integer().required()
 const productId = Joi.number().integer().required()
 const rating = Joi.number().min(0).max(5).required()
 const search = Joi.string().trim().allow('').default('').label('Search text')
@@ -10,7 +9,6 @@ const limit = Joi.number().label('Limit')
 const skip = Joi.number().label('Skip')
 
 export const ratingSchema = Joi.object().keys({
-userId,
 productId,
   rating
 })

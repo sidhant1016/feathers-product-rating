@@ -4,7 +4,7 @@ export declare const productSchema: {
     readonly $id: "Product";
     readonly type: "object";
     readonly additionalProperties: false;
-    readonly required: readonly ["id", "name", "description", "category"];
+    readonly required: readonly ["id", "name", "description"];
     readonly properties: {
         readonly id: {
             readonly type: "number";
@@ -15,9 +15,6 @@ export declare const productSchema: {
         readonly description: {
             readonly type: "string";
         };
-        readonly category: {
-            readonly type: "string";
-        };
     };
 };
 export type Product = FromSchema<typeof productSchema>;
@@ -26,13 +23,11 @@ export declare const productResolver: import("@feathersjs/schema").Resolver<{
     id: number;
     name: string;
     description: string;
-    category: string;
 }, HookContext>;
 export declare const productExternalResolver: import("@feathersjs/schema").Resolver<{
     id: number;
     name: string;
     description: string;
-    category: string;
 }, HookContext>;
 export declare const productDataSchema: {
     readonly $id: "ProductData";
@@ -49,9 +44,6 @@ export declare const productDataSchema: {
         readonly description: {
             readonly type: "string";
         };
-        readonly category: {
-            readonly type: "string";
-        };
     };
 };
 export type ProductData = FromSchema<typeof productDataSchema>;
@@ -60,7 +52,6 @@ export declare const productDataResolver: import("@feathersjs/schema").Resolver<
     id?: number | undefined;
     name?: string | undefined;
     description?: string | undefined;
-    category?: string | undefined;
 }, HookContext>;
 export declare const productPatchSchema: {
     readonly $id: "ProductPatch";
@@ -77,9 +68,6 @@ export declare const productPatchSchema: {
         readonly description: {
             readonly type: "string";
         };
-        readonly category: {
-            readonly type: "string";
-        };
     };
 };
 export type ProductPatch = FromSchema<typeof productPatchSchema>;
@@ -88,7 +76,6 @@ export declare const productPatchResolver: import("@feathersjs/schema").Resolver
     id?: number | undefined;
     name?: string | undefined;
     description?: string | undefined;
-    category?: string | undefined;
 }, HookContext>;
 export declare const productQuerySchema: {
     readonly $id: "ProductQuery";
@@ -118,17 +105,13 @@ export declare const productQuerySchema: {
                     readonly type: "number";
                     readonly enum: [1, -1];
                 };
-                readonly category: {
-                    readonly type: "number";
-                    readonly enum: [1, -1];
-                };
             };
         };
         readonly $select: {
             readonly type: "array";
             readonly maxItems: number;
             readonly items: {
-                readonly enum?: ("id" | "name" | "description" | "category")[] | undefined;
+                readonly enum?: ("id" | "name" | "description")[] | undefined;
                 readonly type: "string";
             };
         };
@@ -149,11 +132,6 @@ export declare const productQuerySchema: {
                         [key: string]: import("json-schema-to-ts").JSONSchema7;
                     } | undefined>;
                     readonly description: import("@feathersjs/schema").PropertyQuery<{
-                        readonly type: "string";
-                    }, {
-                        [key: string]: import("json-schema-to-ts").JSONSchema7;
-                    } | undefined>;
-                    readonly category: import("@feathersjs/schema").PropertyQuery<{
                         readonly type: "string";
                     }, {
                         [key: string]: import("json-schema-to-ts").JSONSchema7;
@@ -182,11 +160,6 @@ export declare const productQuerySchema: {
                     }, {
                         [key: string]: import("json-schema-to-ts").JSONSchema7;
                     } | undefined>;
-                    readonly category: import("@feathersjs/schema").PropertyQuery<{
-                        readonly type: "string";
-                    }, {
-                        [key: string]: import("json-schema-to-ts").JSONSchema7;
-                    } | undefined>;
                 } & {
                     readonly $or: {
                         readonly type: "array";
@@ -209,11 +182,6 @@ export declare const productQuerySchema: {
                                 }, {
                                     [key: string]: import("json-schema-to-ts").JSONSchema7;
                                 } | undefined>;
-                                readonly category: import("@feathersjs/schema").PropertyQuery<{
-                                    readonly type: "string";
-                                }, {
-                                    [key: string]: import("json-schema-to-ts").JSONSchema7;
-                                } | undefined>;
                             };
                         };
                     };
@@ -231,11 +199,6 @@ export declare const productQuerySchema: {
             [key: string]: import("json-schema-to-ts").JSONSchema7;
         } | undefined>;
         readonly description: import("@feathersjs/schema").PropertyQuery<{
-            readonly type: "string";
-        }, {
-            [key: string]: import("json-schema-to-ts").JSONSchema7;
-        } | undefined>;
-        readonly category: import("@feathersjs/schema").PropertyQuery<{
             readonly type: "string";
         }, {
             [key: string]: import("json-schema-to-ts").JSONSchema7;
@@ -265,7 +228,6 @@ export declare const productQueryResolver: import("@feathersjs/schema").Resolver
         id?: 1 | -1 | undefined;
         name?: 1 | -1 | undefined;
         description?: 1 | -1 | undefined;
-        category?: 1 | -1 | undefined;
     } | undefined;
     $or?: {
         id?: number | {
@@ -277,10 +239,6 @@ export declare const productQueryResolver: import("@feathersjs/schema").Resolver
             [x: number]: unknown;
         } | undefined;
         description?: string | {
-            [x: string]: unknown;
-            [x: number]: unknown;
-        } | undefined;
-        category?: string | {
             [x: string]: unknown;
             [x: number]: unknown;
         } | undefined;
@@ -311,18 +269,6 @@ export declare const productQueryResolver: import("@feathersjs/schema").Resolver
                 [x: string]: unknown;
                 [x: number]: unknown;
             } | undefined;
-            category?: string | {
-                [x: string]: unknown;
-                [x: number]: unknown;
-            } | undefined;
         }[] | undefined;
-        category?: string | {
-            [x: string]: unknown;
-            [x: number]: unknown;
-        } | undefined;
     }[] | undefined;
-    category?: string | {
-        [x: string]: unknown;
-        [x: number]: unknown;
-    } | undefined;
 }, HookContext>;

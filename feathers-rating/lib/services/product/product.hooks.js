@@ -6,14 +6,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const authentication_1 = require("@feathersjs/authentication");
 const feathers_validate_joi_1 = __importDefault(require("feathers-validate-joi"));
 const schema_1 = require("@feathersjs/schema");
+const checkAdmin_hook_1 = require("../../hooks/checkAdmin.hook");
 const product_schema_1 = require("./product.schema");
 const product_joi_1 = require("./product.joi");
-const authorizeAdminOnly = (context) => {
-    const { user } = context.params;
-    if (!user || user.role !== 'admin') {
-        throw new Error('Only admin users are authorized to create and manage products.');
-    }
-};
 exports.default = {
     around: {
         all: [
@@ -27,16 +22,16 @@ exports.default = {
         find: [feathers_validate_joi_1.default.form(product_joi_1.getProductSchema, product_joi_1.joiReadOptions)],
         get: [feathers_validate_joi_1.default.form(product_joi_1.getProductSchema, product_joi_1.joiReadOptions)],
         create: [
-            authorizeAdminOnly,
+            checkAdmin_hook_1.authorizeAdminOnly,
             feathers_validate_joi_1.default.form(product_joi_1.createProductSchema, product_joi_1.joiOptions),
             schema_1.hooks.resolveData(product_schema_1.productDataResolver)
         ],
         patch: [
-            authorizeAdminOnly,
+            checkAdmin_hook_1.authorizeAdminOnly,
             feathers_validate_joi_1.default.form(product_joi_1.createProductSchema, product_joi_1.joiOptions),
             schema_1.hooks.resolveData(product_schema_1.productPatchResolver)
         ],
-        remove: [authorizeAdminOnly]
+        remove: [checkAdmin_hook_1.authorizeAdminOnly]
     },
     after: {
         all: []

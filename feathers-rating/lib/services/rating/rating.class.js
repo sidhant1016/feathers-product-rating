@@ -6,21 +6,16 @@ const domain_1 = require("domain");
 class RatingService extends knex_1.KnexService {
     async create(data, params) {
         const { productId } = data;
-        const userId = params?.user?.id;
-        if (!userId) {
-            throw new Error('You must be logged in to submit a rating.');
-        }
         // Check if the user has already rated the product
         const existingRating = await this._find({
             query: {
                 productId,
-                userId
             }
         });
         if (existingRating.total > 0) {
             throw new Error('You have already rated this product.');
         }
-        return super.create({ ...data, userId }, params);
+        return super.create({ ...data }, params);
     }
 }
 exports.RatingService = RatingService;

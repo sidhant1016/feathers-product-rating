@@ -5,7 +5,6 @@ class Product extends Model {
   public id!: number
   public name!: string
   public description!: string
-  public category!: string
   public rating!: number
 }
 
@@ -22,10 +21,6 @@ Product.init(
       allowNull: false
     },
     description: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    category: {
       type: DataTypes.STRING,
       allowNull: false
     },

@@ -1,0 +1,1 @@
+{"version":3,"file":"checkAdmin.hook.js","sourceRoot":"","sources":["../../src/hooks/checkAdmin.hook.ts"],"names":[],"mappings":";;;AAGO,MAAM,kBAAkB,GAAG,CAAC,OAAoB,EAAE,EAAE;IACvD,MAAM,EAAE,IAAI,EAAE,GAAG,OAAO,CAAC,MAAM,CAAA;IAC/B,IAAI,CAAC,IAAI,IAAI,IAAI,CAAC,IAAI,KAAK,OAAO,EAAE;QAClC,MAAM,IAAI,KAAK,CAAC,gEAAgE,CAAC,CAAA;KAClF;AACH,CAAC,CAAA;AALU,QAAA,kBAAkB,sBAK5B"}

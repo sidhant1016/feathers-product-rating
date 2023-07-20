@@ -2,6 +2,7 @@ import { authenticate } from '@feathersjs/authentication'
 import validate from 'feathers-validate-joi'
 import { hooks as schemaHooks } from '@feathersjs/schema'
 import { HooksObject, HookContext } from '@feathersjs/feathers'
+import {authorizeAdminOnly} from "../../hooks/checkAdmin.hook"
 import {
   productResolver,
   productExternalResolver,
@@ -11,12 +12,7 @@ import {
 
 import { createProductSchema, getProductSchema, joiOptions, joiReadOptions } from './product.joi'
 
-const authorizeAdminOnly = (context: HookContext) => {
-  const { user } = context.params
-  if (!user || user.role !== 'admin') {
-    throw new Error('Only admin users are authorized to create and manage products.')
-  }
-}
+
 
 export default {
   around: {
